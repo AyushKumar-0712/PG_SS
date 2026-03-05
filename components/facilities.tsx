@@ -61,22 +61,22 @@ export function Facilities() {
   }
 
   return (
-    <section id="facilities" className="py-12 bg-card">
+    <section id="facilities" className="py-8 lg:py-12 bg-card">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-8 lg:mb-16 text-center"
         >
           <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
             Amenities
           </span>
-          <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="mt-4 text-balance text-2xl lg:text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Everything You Need, Included
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-3 lg:mt-4 max-w-2xl text-pretty text-sm lg:text-lg leading-relaxed text-muted-foreground">
             We have thought of everything so you can focus on what matters most.
             All facilities are included with zero hidden charges.
           </p>
@@ -112,7 +112,7 @@ export function Facilities() {
         {/* Mobile Carousel - Show one at a time with swipe */}
         {isMobile && (
           <div className="lg:hidden relative">
-            <div className="relative min-h-[320px] overflow-hidden cursor-grab active:cursor-grabbing">
+            <div className="relative min-h-[180px] overflow-hidden cursor-grab active:cursor-grabbing">
               <AnimatePresence custom={direction} mode="wait">
                 <motion.div
                   key={current}
@@ -138,14 +138,14 @@ export function Facilities() {
                     return (
                       <motion.div
                         whileHover={{ scale: 1.02 }}
-                        className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-background p-6 transition-shadow hover:shadow-lg"
+                        className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-background p-4 transition-shadow hover:shadow-lg"
                       >
                         <div>
-                          <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ${facility.color}`}>
-                            <Icon className="h-6 w-6" />
+                          <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg ${facility.color}`}>
+                            <Icon className="h-5 w-5" />
                           </div>
-                          <h3 className="text-lg font-semibold text-foreground">{facility.label}</h3>
-                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{facility.desc}</p>
+                          <h3 className="text-base font-semibold text-foreground">{facility.label}</h3>
+                          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{facility.desc}</p>
                         </div>
                         <div className="absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-primary/5 opacity-0 transition-opacity group-hover:opacity-100" />
                       </motion.div>
@@ -156,7 +156,7 @@ export function Facilities() {
             </div>
 
             {/* Mobile Controls */}
-            <div className="mt-8 flex items-center justify-center gap-4">
+            <div className="mt-4 flex items-center justify-center gap-3">
               <button
                 onClick={() => paginate(-1)}
                 className="rounded-full border border-border bg-card p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
@@ -172,9 +172,8 @@ export function Facilities() {
                       setDirection(i > current ? 1 : -1)
                       setCurrent(i)
                     }}
-                    className={`h-2 rounded-full transition-all ${
-                      i === current ? "w-8 bg-primary" : "w-2 bg-border"
-                    }`}
+                    className={`h-2 rounded-full transition-all ${i === current ? "w-8 bg-primary" : "w-2 bg-border"
+                      }`}
                     aria-label={`Go to facility ${i + 1}`}
                   />
                 ))}
