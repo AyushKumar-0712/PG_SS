@@ -82,7 +82,7 @@ export function EnquiryForm() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Call / WhatsApp</p>
-                  <p className="font-semibold text-foreground">+91 98765 43210</p>
+                  <p className="font-semibold text-foreground">+91 90286 34445</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-4">
@@ -183,10 +183,10 @@ export function EnquiryForm() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="1-sharing">Single Room - ₹8,500/mo</SelectItem>
-                                <SelectItem value="2-sharing">Double Sharing - ₹6,500/mo</SelectItem>
-                                <SelectItem value="3-sharing">Triple Sharing - ₹5,500/mo</SelectItem>
-                                <SelectItem value="4-sharing">Quad Sharing - ₹4,500/mo</SelectItem>
+                                <SelectItem value="1-sharing">Triple Sharing(AC) - ₹10,000/mo</SelectItem>
+                                <SelectItem value="2-sharing">Triple Sharing - ₹9,500/mo</SelectItem>
+                                <SelectItem value="3-sharing">Quad Sharing(AC) - ₹9,000/mo</SelectItem>
+                                <SelectItem value="4-sharing">Quad Sharing - ₹8,500/mo</SelectItem>
                               </SelectContent>
                             </Select>
                             <FormMessage />

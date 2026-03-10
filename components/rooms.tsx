@@ -10,7 +10,7 @@ const rooms = {
     {
       sharing: 3,
       label: "3-Sharing (Triple)",
-      price: "₹12,000",
+      price: "₹10,000",
       popular: true,
       image: "/images/gallery-1.jpg",
       features: [
@@ -24,7 +24,7 @@ const rooms = {
     {
       sharing: 4,
       label: "4-Sharing (Quad)",
-      price: "₹9,500",
+      price: "₹9,000",
       popular: false,
       image: "/images/gallery-1.jpg",
       features: [
@@ -54,7 +54,7 @@ const rooms = {
     {
       sharing: 4,
       label: "4-Sharing (Quad)",
-      price: "₹7,500",
+      price: "₹8,500",
       popular: false,
       image: "/images/gallery-1.jpg",
       features: [
@@ -91,22 +91,20 @@ export function Rooms() {
         <div className="flex justify-center gap-4 mb-16">
           <button
             onClick={() => setIsAC(true)}
-            className={`flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold transition-all ${
-              isAC
+            className={`flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold transition-all ${isAC
                 ? "bg-blue-500 text-white shadow-lg"
                 : "border-2 border-slate-300 text-slate-600 hover:border-slate-400"
-            }`}
+              }`}
           >
             <Check className="h-5 w-5" />
             AC (Air-Conditioned)
           </button>
           <button
             onClick={() => setIsAC(false)}
-            className={`flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold transition-all ${
-              !isAC
+            className={`flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold transition-all ${!isAC
                 ? "bg-blue-500 text-white shadow-lg"
                 : "border-2 border-slate-300 text-slate-600 hover:border-slate-400"
-            }`}
+              }`}
           >
             Non-AC
           </button>
@@ -121,9 +119,8 @@ export function Rooms() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -8 }}
-              className={`relative flex flex-col rounded-3xl bg-white p-8 shadow-md transition-shadow hover:shadow-2xl overflow-hidden ${
-                room.popular ? "ring-2 ring-blue-500" : ""
-              }`}
+              className={`relative flex flex-col rounded-3xl bg-white p-8 shadow-md transition-shadow hover:shadow-2xl overflow-hidden ${room.popular ? "ring-2 ring-blue-500" : ""
+                }`}
             >
               {room.popular && (
                 <div className="absolute -top-4 right-4 rounded-full bg-blue-500 text-white px-4 py-1 text-xs font-semibold">
@@ -176,7 +173,7 @@ export function Rooms() {
 
         {/* Footer Notes */}
         <div className="mt-12 text-center text-sm text-slate-600">
-          <p>All inclusive (Water, Electricity*, Maintenance) • Deposit Required</p>
+          <p>All exclusive (Electricity*, Maintenance) • Deposit Required</p>
         </div>
       </div>
     </section>
