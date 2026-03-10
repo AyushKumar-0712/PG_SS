@@ -19,6 +19,27 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    setMobileOpen(false)
+
+    // Give time for the mobile menu closing animation to start / React to update
+    // before initiating the smooth scroll, preventing browser aborts
+    setTimeout(() => {
+      const targetId = href.replace("#", "")
+      const elem = document.getElementById(targetId)
+      if (elem) {
+        // Adjust offset if the menu is no longer expanded
+        const offset = 90
+        const targetPosition = elem.getBoundingClientRect().top + window.scrollY - offset
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth"
+        })
+      }
+    }, 150)
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
@@ -50,8 +71,8 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-            ? "bg-white shadow-lg py-3"
-            : "bg-transparent py-5"
+          ? "bg-white shadow-lg py-3"
+          : "bg-transparent py-5"
           }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
@@ -79,11 +100,12 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`relative rounded-lg px-4 py-2 text-sm font-medium transition-colors ${activeSection === link.href.replace("#", "")
-                    ? scrolled ? "text-primary" : "text-white"
-                    : scrolled
-                      ? "text-muted-foreground hover:text-foreground"
-                      : "text-white/70 hover:text-white"
+                  ? scrolled ? "text-primary" : "text-white"
+                  : scrolled
+                    ? "text-muted-foreground hover:text-foreground"
+                    : "text-white/70 hover:text-white"
                   }`}
               >
                 {link.label}
@@ -137,13 +159,13 @@ export function Navbar() {
                   <motion.a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}
                     className={`rounded-lg px-4 py-3 text-base font-medium transition-colors ${activeSection === link.href.replace("#", "")
-                        ? "bg-primary/10 text-primary"
-                        : "text-foreground hover:bg-muted"
+                      ? "bg-primary/10 text-primary"
+                      : "text-foreground hover:bg-muted"
                       }`}
                   >
                     {link.label}
